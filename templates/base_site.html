@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Sistema Escolar</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+	</head>
+
+	<body>
+		{% include "navbar.html" %}
+
+		<div class="container">
+			{% block conteudo %}{% endblock %}
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+	</body>
+</html>
