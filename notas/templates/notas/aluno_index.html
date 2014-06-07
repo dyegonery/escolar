@@ -1,0 +1,36 @@
+{% extends "base_site.html" %}
+
+{% block conteudo %}
+	<h1>Lista de Alunos</h1>
+	<div class="clearfix"></div>
+
+	<div class="row">
+		<div class="col-xs-6">Search</div>
+		<div class="col-xs-6">
+			<a href="{% url 'notas:aluno_create' %}" class="btn btn-primary pull-right">Cadastrar Aluno</a>
+		</div>
+	</div>
+
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<td><b>Código</b></td>
+				<td><b>Nome</b></td>
+				<td><b>Turma</b></td>
+				<td class="td_action" colspan='2'><b>Ação</b></td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for aluno in all_alunos %}
+				<tr>
+					<td><a href="{% url 'notas:aluno_detail' aluno.id %}">{{ aluno.id }}</a></td>
+					<td><a href="{% url 'notas:aluno_detail' aluno.id %}">{{ aluno.nome }}</a></td>
+					<td>{{ aluno.turma }}</td>
+					<td><a href="{% url 'notas:aluno_update' aluno.id %}">Alterar</a></td>
+					<td>Excluir</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

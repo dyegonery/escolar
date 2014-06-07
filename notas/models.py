@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 class Turma(models.Model):
@@ -17,3 +18,5 @@ class Aluno(models.Model):
 	provas = models.ManyToManyField(Prova)
 	def __str__(self):
 		return self.nome
+	def get_absolute_url(self):
+		return reverse('notas:aluno_detail', kwargs={'pk': self.pk})

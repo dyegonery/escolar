@@ -5,8 +5,22 @@ from django.views import generic
 
 from notas.models import Prova, Aluno
 
-class IndexView(generic.ListView):
-	template_name = 'notas/index.html'
-	context_object_name = 'all_provas'
-	def get_queryset(self):
-		return Prova.objects.order_by('-data')
+def index(request):
+	return render(request, 'notas/index.html')
+
+class AlunoIndex(generic.ListView):
+	model = Aluno
+	template_name = 'notas/aluno_index.html'
+	context_object_name = 'all_alunos'
+
+class AlunoCreate(generic.CreateView):
+	model = Aluno
+	fields = ['nome', 'turma']
+
+class AlunoUpdate(generic.UpdateView):
+	model = Aluno
+	fields = ['nome', 'turma']
+
+class AlunoDetail(generic.DetailView):
+	model = Aluno
+	template_name = 'notas/aluno_detail.html'
