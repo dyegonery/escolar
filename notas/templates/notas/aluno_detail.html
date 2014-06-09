@@ -3,5 +3,15 @@
 {% block conteudo %}
 
 	<h1>{{ aluno.nome }}</h1>
+	<ul>
+		<li>{{ aluno.turma }}</li>
+		<li>Provas:
+			<ul>
+				{% for prova in aluno.provas.all %}
+				<li>{{prova.valor|floatformat}} - {{ prova.data|date:'d/m/Y' }}</li>
+				{% endfor %}
+			</ul>
+		</li>
+	</ul>
 
 {% endblock %}

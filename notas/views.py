@@ -17,11 +17,11 @@ class AlunoIndex(generic.ListView):
 
 class AlunoCreate(generic.CreateView):
 	model = Aluno
-	fields = ['nome', 'turma']
+	fields = ['nome', 'turma', 'provas']
 
 class AlunoUpdate(generic.UpdateView):
 	model = Aluno
-	fields = ['nome', 'turma']
+	fields = ['nome', 'turma', 'provas']
 
 class AlunoDetail(generic.DetailView):
 	model = Aluno

@@ -13,7 +13,7 @@ class Prova(models.Model):
 	valor = models.DecimalField(max_digits=4, decimal_places=2)
 	turma = models.ForeignKey(Turma)
 	def __str__(self):
-		return self.valor
+		return str(self.valor)
 	def get_absolute_url(self):
 		return reverse('notas:prova_detail', kwargs={'pk': self.pk})
 

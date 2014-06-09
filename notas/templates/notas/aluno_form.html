@@ -20,6 +20,12 @@
 					{{ form.turma }}
 				</div>
 
+				<div class="form-group">
+					{{ form.provas.errors }}
+					<label for="provas">Provas Feitas:</label><br>
+					{{ form.provas }}
+				</div>
+
 				<input type="submit" value="Enviar" class="btn btn-primary btn-lg"/>
 			</form>
 		</div>
