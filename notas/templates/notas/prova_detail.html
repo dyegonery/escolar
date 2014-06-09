@@ -1,0 +1,12 @@
+{% extends "base_site.html" %}
+
+{% block conteudo %}
+
+	<h1>Prova - {{ prova.id }}</h1>
+	<ul>
+		<li>Data de aplicação: {{prova.data|date:"d M Y"}}</li>
+		<li>Valor: {{prova.valor}} </li>
+		<li>Turma: {{prova.turma }} </li>
+	</ul>
+
+{% endblock %}

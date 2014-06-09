@@ -1,0 +1,21 @@
+{% extends "base_site.html" %}
+
+{% block conteudo %}
+
+	<h1>Cadastro de Turma</h1>
+	<div class="panel panel-primary">
+		<div class="panel-heading"> Dados da Turma </div>
+		<div class="panel-body">
+			<form action="" method="post">
+				{% csrf_token %}
+				<div class="form-group">
+					{{ form.desc_turma.errors }}
+					<label for="data">Descrição:</label><br>
+					{{ form.desc_turma }}
+				</div>
+
+				<input type="submit" value="Enviar" class="btn btn-primary btn-lg"/>
+			</form>
+		</div>
+	</div>
+{% endblock %}

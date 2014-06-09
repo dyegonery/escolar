@@ -1,0 +1,33 @@
+{% extends "base_site.html" %}
+
+{% block conteudo %}
+
+	<h1>Cadastro de Prova</h1>
+	<div class="panel panel-primary">
+		<div class="panel-heading"> Dados da Prova </div>
+		<div class="panel-body">
+			<form action="" method="post">
+				{% csrf_token %}
+				<div class="form-group">
+					{{ form.data.errors }}
+					<label for="data">Data:</label><br>
+					{{ form.data }}
+				</div>
+
+				<div class="form-group">
+					{{ form.valor.errors }}
+					<label for="valor">Valor:</label><br>
+					{{ form.valor }}
+				</div>
+
+				<div class="form-group">
+					{{ form.turma.errors }}
+					<label for="turma">Turma:</label><br>
+					{{ form.turma }}
+				</div>
+
+				<input type="submit" value="Enviar" class="btn btn-primary btn-lg"/>
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base_site.html" %}
+
+{% block conteudo %}
+	<h1>Lista de Provas</h1>
+	<div class="clearfix"></div>
+
+	<div class="row">
+		<div class="col-xs-6"></div>
+		<div class="col-xs-6">
+			<a href="{% url 'notas:turma_create' %}" class="btn btn-primary pull-right">Cadastrar Turma</a>
+		</div>
+	</div>
+
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<td><b>Código</b></td>
+				<td><b>Descrição</b></td>
+				<td class="td_action" colspan='2'><b>Ação</b></td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for turma in all_turmas %}
+				<tr>
+					<td><a href="{% url 'notas:turma_detail' turma.id %}">{{ turma.id }}</a></td>
+					<td>{{ turma.desc_turma }}</td>
+					<td><a href="{% url 'notas:turma_update' turma.id %}">Alterar</a></td>
+					<td><a class="del_link" data-id="{{ turma.id }}" href="#">Excluir</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		$('.del_link').click(function() {
+			if (confirm("Tem certeza que deseja excluir esta turma?")) {
+				var element = $(this).parents('tr');
+				$.ajax({
+					type: 'GET',
+					url: '/notas/turmas/delete/'+$(this).data('id')
+				}).done(function() {
+					element.remove();
+				});
+			}
+		});
+	</script>
+{% endblock %}

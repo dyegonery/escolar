@@ -1,0 +1,52 @@
+{% extends "base_site.html" %}
+
+{% block conteudo %}
+	<h1>Lista de Provas</h1>
+	<div class="clearfix"></div>
+
+	<div class="row">
+		<div class="col-xs-6"></div>
+		<div class="col-xs-6">
+			<a href="{% url 'notas:prova_create' %}" class="btn btn-primary pull-right">Cadastrar Prova</a>
+		</div>
+	</div>
+
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<td><b>Código</b></td>
+				<td><b>Data de Aplicação</b></td>
+				<td><b>Valor</b></td>
+				<td class="td_action" colspan='2'><b>Ação</b></td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for prova in all_provas %}
+				<tr>
+					<td><a href="{% url 'notas:prova_detail' prova.id %}">{{ prova.id }}</a></td>
+					<td>{{ prova.data|date:"d/m/Y" }}</td>
+					<td>{{ prova.valor }}</td>
+					<td><a href="{% url 'notas:prova_update' prova.id %}">Alterar</a></td>
+					<td><a class="del_link" data-id="{{ prova.id }}" href="#">Excluir</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		$('.del_link').click(function() {
+			if (confirm("Tem certeza que deseja excluir esta prova?")) {
+				var element = $(this).parents('tr');
+				$.ajax({
+					type: 'GET',
+					url: '/notas/provas/delete/'+$(this).data('id')
+				}).done(function() {
+					element.remove();
+				});
+			}
+		});
+	</script>
+{% endblock %}
