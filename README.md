@@ -43,9 +43,12 @@ O sistema possui três tabelas
   - Provas
 
 Seguindo os requisitos do projeto, os seguintes campos obrigatórios estão presentes
-DateField - Prova.data
-CharField - Aluno.nome
-ForeignKey - Aluno.turma
-ManyToManyField - Aluno.provas
+  - DateField: Prova.data
+  - CharField: Aluno.nome
+  - ForeignKey: Aluno.turma
+  - ManyToManyField: Aluno.provas
+  - DecimalField: Prova.valor
+
+Para desenvolvimento do mesmo, também foi utilizado o Twitter Bootstrap 3.
 
 
