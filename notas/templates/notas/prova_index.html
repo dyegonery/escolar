@@ -26,8 +26,8 @@
 					<td><a href="{% url 'notas:prova_detail' prova.id %}">{{ prova.id }}</a></td>
 					<td>{{ prova.data|date:"d/m/Y" }}</td>
 					<td>{{ prova.valor }}</td>
-					<td><a href="{% url 'notas:prova_update' prova.id %}">Alterar</a></td>
-					<td><a class="del_link" data-id="{{ prova.id }}" href="#">Excluir</a></td>
+					<td><a href="{% url 'notas:prova_update' prova.id %}" class="btn btn-warning">Alterar</a></td>
+					<td><a class="del_link btn btn-danger" data-id="{{ prova.id }}" href="#">Excluir</a></td>
 				</tr>
 			{% endfor %}
 		</tbody>

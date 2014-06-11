@@ -26,8 +26,8 @@
 					<td><a href="{% url 'notas:aluno_detail' aluno.id %}">{{ aluno.id }}</a></td>
 					<td><a href="{% url 'notas:aluno_detail' aluno.id %}">{{ aluno.nome }}</a></td>
 					<td>{{ aluno.turma }}</td>
-					<td><a href="{% url 'notas:aluno_update' aluno.id %}">Alterar</a></td>
-					<td><a class="del_link" data-id="{{ aluno.id }}" href="#">Excluir</a></td>
+					<td><a href="{% url 'notas:aluno_update' aluno.id %}" class="btn btn-warning">Alterar</a></td>
+					<td><a class="del_link btn btn-danger" data-id="{{ aluno.id }}" href="#">Excluir</a></td>
 				</tr>
 			{% endfor %}
 		</tbody>

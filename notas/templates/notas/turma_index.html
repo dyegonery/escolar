@@ -24,8 +24,8 @@
 				<tr>
 					<td><a href="{% url 'notas:turma_detail' turma.id %}">{{ turma.id }}</a></td>
 					<td>{{ turma.desc_turma }}</td>
-					<td><a href="{% url 'notas:turma_update' turma.id %}">Alterar</a></td>
-					<td><a class="del_link" data-id="{{ turma.id }}" href="#">Excluir</a></td>
+					<td><a href="{% url 'notas:turma_update' turma.id %}" class="btn btn-warning">Alterar</a></td>
+					<td><a data-id="{{ turma.id }}" href="#" class="del_link btn btn-danger">Excluir</a></td>
 				</tr>
 			{% endfor %}
 		</tbody>
