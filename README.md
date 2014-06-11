@@ -34,4 +34,18 @@ python manage.py runserver
 
 Acessando o endereço 127.0.0.1:8000 você acessará a página inicial da aplicação.
 
+Funcionamento
+===========
+
+O sistema possui três tabelas
+  - Alunos
+  - Turmas
+  - Provas
+
+Seguindo os requisitos do projeto, os seguintes campos obrigatórios estão presentes
+DateField - Prova.data
+CharField - Aluno.nome
+ForeignKey - Aluno.turma
+ManyToManyField - Aluno.provas
+
 
